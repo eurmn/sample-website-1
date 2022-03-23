@@ -1,0 +1,56 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-01a09abf.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-6bdb63a6.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/index.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-51862658.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-6bdb63a6.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-3dee7841.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "error.svelte-26115b85.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-6bdb63a6.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-05d6132e.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-6bdb63a6.js"
+    ]
+  },
+  "_vendor-6bdb63a6.js": {
+    "file": "chunks/vendor-6bdb63a6.js",
+    "dynamicImports": [
+      "node_modules/.pnpm/tsparticles@1.42.4/node_modules/tsparticles/esm/Plugins/PolygonMask/pathseg.js"
+    ]
+  },
+  "node_modules/.pnpm/tsparticles@1.42.4/node_modules/tsparticles/esm/Plugins/PolygonMask/pathseg.js": {
+    "file": "chunks/pathseg-38645d0a.js",
+    "src": "node_modules/.pnpm/tsparticles@1.42.4/node_modules/tsparticles/esm/Plugins/PolygonMask/pathseg.js",
+    "isDynamicEntry": true
+  }
+}
