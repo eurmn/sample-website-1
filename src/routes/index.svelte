@@ -1,9 +1,11 @@
 <script lang="ts">
   import Particles from 'svelte-particles';
   import { library, dom } from '@fortawesome/fontawesome-svg-core';
-  import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+  import { faCaretRight, faAngleDown, faBars } from '@fortawesome/free-solid-svg-icons';
+  import FeedItem from '../components/FeedItem.svelte';
+  import { assets } from '$app/paths';
 
-  library.add(faCaretRight, faCaretLeft);
+  library.add(faCaretRight, faAngleDown, faBars);
   dom.watch();
 
   let particlesConfig = {
@@ -524,70 +526,63 @@
   };
 </script>
 
-<section id="main-bg" class="w-full h-[100vh] bg-gradient-to-tr from-indigo-900 to-blue-800 px-56 py-8 antialiased relative">
+<section id="main-bg" class="w-full h-[88vh] md:h-[100vh] bg-gradient-to-tr from-indigo-900 to-blue-800 md:px-56 antialiased relative">
   <Particles
     id="tsparticles"
     options="{particlesConfig}"
   />
-  <header class="absolute left-0 mt-10 w-full text-4xl font-quicksand flex justify-center items-center">
-    <span class="m-1 mx-4 underline">home</span>
-    <span class="m-1 mx-4">sobre</span>
-    <span class="text-8xl mx-4 font-dosis">SEU NEGÓCIO</span>
-    <span class="m-1 mx-4">contato</span>
-    <span class="m-1 mx-4">log in</span>
+  <header class="absolute left-0 w-full text-2xl font-quicksand flex md:justify-center justify-around items-center flex-wrap px-4 mt-8">
+    <i class="fa-solid fa-bars fa-xl inline md:hidden cursor-pointer"></i>
+    <span class="m-1 mx-4 underline hidden md:inline">home</span>
+    <span class="m-1 mx-4 hidden md:inline">sobre</span>
+    <span class="text-5xl mx-4 font-dosis md:w-auto text-center">SEU NEGÓCIO</span>
+    <span class="m-1 mx-4 hidden md:inline">contato</span>
+    <span class="m-1 mx-4 hidden md:inline">log in</span>
   </header>
-  <div class="mt-36 ml-10">
+  <div class="h-full">
     <div class="flex w-full justify-center h-full items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-      <i class="fa-solid fa-caret-left inline flex-1 fa-5x text-white/90 cursor-pointer"></i>
-      <span class="w-1/2 text-center">
-        <span class="text-5xl font-inter font-extrabold text-[#78FFA6]">Breve descrição do seu negócio</span>
+      <span class="md:w-1/2 text-center md:px-auto px-4">
+        <span class="text-4xl md:text-5xl font-inter font-extrabold text-[#78FFA6]">Breve descrição do seu negócio</span>
         <br>
-        <span class="text-2xl text-center font-quicksand">lorem ipsum faucibus sem fermentum leo nam ac fames, scelerisque sit orci sodales malesuada tristique. </span>
+        <span class="text-xl text-center font-quicksand">lorem ipsum faucibus sem fermentum leo nam ac fames, scelerisque sit orci sodales malesuada tristique. </span>
       </span>
-      <i class="fa-solid fa-caret-right inline flex-1 fa-5x text-white/90 cursor-pointer"></i>
     </div>
   </div>
-  <span class="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center">
-    <span class="w-10 h-10 rounded-full bg-white/60 mx-2"/>
-    <span class="w-12 h-12 rounded-full bg-[#78FFA6] mx-2"/>
-    <span class="w-10 h-10 rounded-full bg-white/60 mx-2"/>
-  </span>
+  <a href="#description">
+    <i class="fa-solid fa-angle-down fa-3x text-[#78FFA6] absolute bottom-0 left-1/2 -translate-x-1/2"></i>
+  </a>
 </section>
-<section class="h-[50vh] bg-[#EAEAEA] flex flex-col justify-center px-64 font-quicksand text-5xl">
-  <span class="text-black">TÍTULO DA DESCRIÇÃO</span>
-  <span class="text-2xl text-[#888888] w-3/4 indent-5">
+<section id="description" class="h-[50vh] bg-[#EAEAEA] flex flex-col justify-center md:px-64 font-quicksand text-slate-900
+  text-4xl md:text-5xl md:text-left text-center px-2">
+  <span class="font-normal">TÍTULO DA DESCRIÇÃO</span>
+  <span class="text-base md:text-2xl text-[#888888] md:w-3/4 indent-5">
     <br>
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     <br>
     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </span>
 </section>
-<section class="h-[60vh] relative text-black px-64 flex flex-col">
-  <span class="absolute bottom-0 left-1/2 -translate-x-1/2 font-inter flex flex-col items-center my-4">
-    <span>Nos siga nas redes sociais!</span>
-    <span class="flex justify-evenly my-2 w-full">
-      <span class="h-10 w-10 rounded-full bg-[cornflowerblue]"/>
-      <span class="h-10 w-10 rounded-full bg-[cornflowerblue]"/>
-      <span class="h-10 w-10 rounded-full bg-[cornflowerblue]"/>
+<section class="h-[80vh] relative text-slate-900 flex flex-col bg-[#f7f7f7]">
+  <span class="font-quicksand text-5xl mt-8 md:pl-64 md:text-left text-center">FEED</span>
+  <span class="h-2/3 w-full flex justify-center relative items-center flex-wrap bg-[#f7f7f7]">
+    <FeedItem title="Título Feed 1" imgURL='{assets}/0.jpg' />
+    <FeedItem title="Título Feed 2" imgURL='{assets}/1.jpg' />
+    <FeedItem title="Título Feed 3" imgURL='{assets}/2.jpg' />
+    <FeedItem title="Título Feed 4" imgURL='{assets}/3.jpg' />
+    <span class="flex w-full justify-center items-center md:w-auto m-2">
+      <span class="inline md:hidden text-[#6B7280] font-open-sans">Ver Todos</span>
+      <i class="fa-solid fa-caret-right fa-5x text-[#78FFA6] cursor-pointer drop-shadow-lg"></i>
     </span>
-    <span class="underline">seunegocio@dominio.com.br</span>
-    <span>+55 (99) 999999999</span>
-  </span>
-  <span class="font-quicksand text-5xl mt-8">FEED</span>
-  <span class="h-1/2 w-full flex justify-evenly relative items-center">
-    <span class="h-4/5 aspect-[16/9] bg-[#C4C4C4] rounded-3xl relative
-      before:w-full before:h-4/5 before:content-[''] before:bg-[#414141] before:absolute before:rounded-b-3xl before:bottom-0">
-      <div class="font-quicksand text-center w-full h-1/5 align-middle text-xl font-normal pt-2">Título Feed 1</div>
+    <span class="font-inter flex flex-col items-center w-full pb-0 pt-14">
+      <span>Nos siga nas redes sociais!</span>
+      <span class="flex justify-center my-2 w-full">
+        <span style="background-image: url('{assets}/twitter.png');" class="h-10 w-10 rounded-full bg-cover cursor-pointer"/>
+        <span style="background-image: url('{assets}/facebook.png');" class="h-10 w-10 rounded-full bg-cover cursor-pointer"/>
+        <span style="background-image: url('{assets}/youtube.png');" class="h-10 w-10 rounded-full bg-cover cursor-pointer"/>
+      </span>
+      <span class="underline">seunegocio@dominio.com.br</span>
+      <span>+55 (99) 999999999</span>
     </span>
-    <span class="h-4/5 aspect-[16/9] bg-[#C4C4C4] rounded-3xl relative
-      before:w-full before:h-4/5 before:content-[''] before:bg-[#414141] before:absolute before:rounded-b-3xl before:bottom-0">
-      <div class="font-quicksand text-center w-full h-1/5 align-middle text-xl font-normal pt-2">Título Feed 2</div>
-    </span>
-    <span class="h-4/5 aspect-[16/9] bg-[#C4C4C4] rounded-3xl relative
-      before:w-full before:h-4/5 before:content-[''] before:bg-[#414141] before:absolute before:rounded-b-3xl before:bottom-0">
-      <div class="font-quicksand text-center w-full h-1/5 align-middle text-xl font-normal pt-2">Título Feed 3</div>
-    </span>
-    <i class="fa-solid fa-caret-right fa-5x text-[#414141] cursor-pointer"></i>
   </span>
 </section>
 
